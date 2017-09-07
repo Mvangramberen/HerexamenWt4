@@ -1,0 +1,39 @@
+{% include 'recepten/header.html' %}
+<h1>recepten</h1>
+
+<div class="alle recepten">
+<hr>
+
+<form action="" method="post">
+  {% csrf_token %}
+Gerecht : <input type="text" name="naam"><br>
+Ingredienten : <input type="text" name="ingredienten"><br>
+Bereidtijd : <input type="text" name="bereidtijd"><br>
+Calorieen : <input type="text" name="calorieen"><br>
+
+  <input type="submit" value="Toevoegen van gerecht"</input>
+
+</form>
+
+
+<table class = "table">
+
+{% for gerecht in gerechten %}
+    <tr>
+        <td>{{ gerecht.naam }}</td>
+        <td>{{ gerecht.ingedienten }}</td>
+        <td>{{ gerecht.bereidtijd }}</td>
+        <td>{{ gerecht.calorieen }}</td>
+    </tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+<br>
+
+</div>
+
+
+{% include 'recepten/footer.html' %}
